@@ -18,6 +18,6 @@ In collaboration with Daphne Mayor, we extended the Nori renderer with advanced 
 ## 👥 Credits
 - **Omer Alkaya**
 - **Daphne Mayor**
-- **Framework:** [Nori Renderer]([https://wjakob.github.io/nori])
+- **Framework:** [Nori Renderer]([https://wjakob.github.io/nori/])
 
 
