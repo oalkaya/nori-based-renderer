@@ -2,7 +2,7 @@
 
 This repository builds upon the C++-based physically-based renderer **Nori**, progressively implementing core features of ray tracing and rendering techniques. The repository includes individual tasks and a collaborative final project.
 
-## 🔧 Solo Projects (Programming Assignments)
+## Programming Assignments
 
 | Task | Task Overview |
 |------------|---------------|
@@ -18,9 +18,6 @@ In collaboration with Daphne Mayor, we extended the Nori renderer with advanced 
 ## 👥 Credits
 - **Omer Alkaya**
 - **Daphne Mayor**
-- **Framework:** [Nori Renderer (ETH)](https://github.com/eth-igl/nori)
-
----
-Feel free to open issues or explore our forked version for implementation details and results.
+- **Framework:** [Nori Renderer]([https://github.com/eth-igl/nori](https://wjakob.github.io/nori/))
 
 
