@@ -1,0 +1,54 @@
+<scene version="0.5.0">
+    <!-- Integrator -->
+    <integrator type="path_mis"/>
+
+    <!-- Perspective camera -->
+    <camera type="perspective">
+        <transform name="toWorld">
+            <scale value="-1,1,1"/>
+            <lookat target="0,0,0" origin="12,10,13" up="0,0,1"/>
+        </transform>
+
+        <!-- Field of view: 40 degrees -->
+        <float name="fov" value="60"/>
+
+        <!-- 512 x 512 pixels -->
+        <integer name="width" value="720"/>
+        <integer name="height" value="720"/>
+    </camera>
+
+
+
+    <!-- Sample generator, number of samples per pixel -->
+    <sampler type="independent">
+        <integer name="sampleCount" value="32"/>
+    </sampler>
+    
+    <emitter type="env">
+        <string name="OpenEXR" value="../scenes/Project/EnvMap/grace.exr"/>
+    </emitter>
+    
+   
+    <mesh type="sphere">
+            <point name="center" value="-8.5,1,1"/>
+            <float name="radius" value="2"/>
+
+            <bsdf type="mirror"/>
+        </mesh>
+    <mesh type="obj">
+        <string name="filename" value="bob_tri.obj"/>
+        <bsdf type="diffuse">
+            <color name="albedo" value="1,1,1"/>
+        </bsdf>
+
+        <transform name="toWorld">
+            <scale value="6,6,-6"/>
+            <rotate axis="1,0,0" angle="90"/>
+            <rotate axis="0,0,1" angle="180"/>
+            <translate value="-8,1,0"/>
+        </transform>
+
+        </mesh>
+   
+
+</scene>

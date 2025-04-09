@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene>
+    <integrator type="path_mis"/>
+<!--    <integrator type="path_mis"/>-->
+    <camera type="perspective">
+        <float name="fov" value="27.7856"/>
+        <transform name="toWorld">
+            <scale value="-1,1,1"/>
+            <lookat target="0, 0.893051, 4.41198" origin="0, 0.919769, 5.41159" up="0, 1, 0"/>
+        </transform>
+
+        <integer name="height" value="600"/>
+        <integer name="width" value="800"/>
+    </camera>
+
+    <sampler type="independent">
+        <integer name="sampleCount" value="512"/>
+    </sampler>
+
+    <mesh type="obj">
+        <string name="filename" value="meshes/walls.obj"/>
+
+        <bsdf type="diffuse">
+            <color name="albedo" value="0.725 0.71 0.68"/>
+        </bsdf>
+    </mesh>
+
+    <mesh type="obj">
+        <string name="filename" value="meshes/rightwall.obj"/>
+
+        <bsdf type="diffuse">
+            <color name="albedo" value="0.725 0.71 0.68"/>
+        </bsdf>
+    </mesh>
+
+    <mesh type="obj">
+        <string name="filename" value="meshes/leftwall.obj"/>
+
+        <bsdf type="diffuse">
+            <color name="albedo" value="0.725 0.71 0.68"/>
+        </bsdf>
+    </mesh>
+
+    
+    <!-- row 2-->
+    <mesh type="obj">
+        <string name="filename" value="bob_tri.obj"/>
+        <transform name="toWorld">
+            <rotate axis="0 1 0" angle ="-20"/>
+            <scale value="0.2,0.2,-0.2"/>
+            <translate value="-0.4 0.1 0"/>
+            
+        </transform>
+
+        <bsdf type="disney">
+            <color name="albedo" value="0.69,0.61,0.85"/>
+            <float name="clearcoatGloss" value="0" />
+            <float name="roughness" value="0.5" />
+            <float name="clearcoat" value="0.7" />
+            <float name="metallic" value="0.2" />
+        </bsdf>
+    </mesh>
+    <mesh type="obj">
+        <string name="filename" value="bob_tri.obj"/>
+        <transform name="toWorld">
+            <scale value="-0.2,0.2,-0.2"/>
+            <rotate axis="0 1 0" angle ="60"/>
+            <translate value="-0.8 0.1 0.5"/>
+            
+        </transform>
+
+        <bsdf type="disney">
+            <color name="albedo" value="0.69,0.61,0.85"/>
+            <float name="clearcoatGloss" value="0" />
+            <float name="roughness" value="0.5" />
+            <float name="clearcoat" value="0.7" />
+            <float name="metallic" value="0.2" />
+        </bsdf>
+    </mesh>
+    
+    <mesh type="obj">
+        <string name="filename" value="bob_tri.obj"/>
+        <transform name="toWorld">
+            <scale value="0.2,0.2,-0.2"/>
+            <rotate axis="0 1 0" angle ="90"/>
+            <translate value="-0.6 0.1 -0.5"/>
+            
+            
+        </transform>
+
+        <bsdf type="disney">
+            <color name="albedo" value="0.69,0.61,0.85"/>
+            <float name="clearcoatGloss" value="0" />
+            <float name="roughness" value="0.5" />
+            <float name="clearcoat" value="0.7" />
+            <float name="metallic" value="0.2" />
+        </bsdf>
+    </mesh>
+    
+    <emitter type="spot">
+        <point name="position" value = "-0.7 1 0"/>
+        <color name="power" value="0.4,0.8,0.8"/>
+        <float name="cosFalloffStart" value="8"/>
+        <float name="cosTotalWidth" value="15"/>
+        <vector name="direction" value = "0 -1 0"/>
+    </emitter>
+    
+    <mesh type="sphere">
+        <point name="center" value="-0.7 0.1 0" />
+        <float name="radius" value="0.1" />
+        <bsdf type="diffuse">
+            <texture type="imagetexture_legacy" name="albedo">
+                    <string name="fileName" value="marble.png"/>
+                    <vector name="scalev2f" value="0.5,0.5"/>
+            </texture>
+        </bsdf>
+        
+    </mesh>
+
+    <mesh type="obj">
+        <string name="filename" value="meshes/light.obj"/>
+
+        <emitter type="area">
+            <color name="radiance" value="15 15 15"/>
+        </emitter>
+    </mesh>
+    
+    <mesh type="obj">
+        <string name="filename" value="pillar.obj"/>
+        <transform name="toWorld">
+            <translate value="0 0.2 0"/>
+            <scale value="0.2,0.2,-0.2"/>
+        </transform>
+        <bsdf type="disney">
+            <color name="albedo" value="0.82,0.67,0.16"/>
+            <float name="clearcoatGloss" value="1" />
+            <float name="roughness" value="0.3" />
+            <float name="clearcoat" value="1" />
+            <float name="metallic" value="0.7" />
+        </bsdf>
+    </mesh>
+
+    
+
+    <mesh type="sphere">
+        <point name="center" value="0.445800 0.332100 0.376700" />
+        <float name="radius" value="0.3263" />
+        <bsdf type="mirror"/>
+    </mesh>
+
+    <mesh type="obj">
+        <string name="filename" value="meshes/light.obj"/>
+
+        <emitter type="area">
+            <color name="radiance" value="2 2 2"/>
+        </emitter>
+    </mesh>
+</scene>

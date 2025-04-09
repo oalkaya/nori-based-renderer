@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Computer Graphics - Project Report</title>
+
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/offcanvas.css" rel="stylesheet">
+    <link href="resources/custom2014.css" rel="stylesheet">
+    <link href="resources/twentytwenty.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .column {
+        float: left;
+        width: 33.33%;
+        padding:
+        5px;
+      }
+
+      /* Clear floats after image containers */
+      .row::after {
+        
+        content: "";
+        clear: both;
+        display: table;
+      }
+        </style>
+</head>
+
+<body>
+
+<div class="container headerBar">
+		<h1>Final Project - Daphne Mayor & Omer Alkaya</h1>
+</div>
+
+<div class="container contentWrapper">
+<div class="pageContent">
+
+    <h2>Project Theme: Out of Place</h2>
+
+    <img src="images/rapture.jpeg" alt="rapture"/>
+
+    
+
+    <h2>Project Team</h2>
+
+	<p> Omer Alkaya (18-943-092) & Daphne Mayor (18-944-850)
+    </p>
+
+    
+	<!-- ================================================================= -->
+
+    <h2>Features Implemented by Daphne Mayor:</h2>
+    <p>
+        <li>Disney BSDF [15p, Daphne]</li>
+        <li>Environment Map Emitter [15p, Daphne]</li>
+        <li>Progressive Photon Mapping [15p, Daphne]</li>
+        <li>Modeling Meshes [5p, Daphne]</li>
+        <li>Rendering using Euler Cluster [5p, Daphne]</li>
+        <li>Simple Emitter: Spotlight [5p, Daphne]</li>
+    </p>
+
+    <!-- ================================================================= -->
+
+	<h2>Disney BSDF</h2>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>warp.h</li>
+        <li>warp.cpp</li>
+        <li>warptest.cpp</li>
+        <li>disney.cpp</li>
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <p> For this feature I read the official Physically Based Shading paper on the Disney BDSF (https://media.disneyanimation.com/uploads/production/publication_asset/48/asset/s2012_pbs_disney_brdf_notes_v3.pdf). Supplementary I also read and followed this homework assignment (https://cseweb.ucsd.edu/~tzli/cse272/homework1.pdf) as it was nicely structured and provided help in knowing what to implement.
+    
+    I implemented the following parameters: metallic, subsurface, clearcoat, clearcoatgloss, anisotropic and additionally roughness. I was not able to implement anisotropic completely as I was not able to understand exactly how I should change the code in mesh.cpp such that the shading frame is continuous in its tangent. This is why in the following validation the X shape comes up.I implemented the diffuse lobe, the metallic lobe and the clearcoat lobe. In the assignment, the glass lobe is also implemented, however as I did not specify speculartransmission as parameter I by default set it to 0 and do not need to implement it.  </p>
+
+    <h3>Validation: </h3>
+
+    <p> First for the GTR Microfacet Distribution and sampling I added GTR1 for clearcoat sampling and GTR2a specular sampling to the warptests. I pass all the tests. Then I constructed scenes using cbox as a base and show how the sphere material changes given that we only change one parameter and keep the others constant. Finally I compare these with equivalent renders from mitsuba. (Mitsuba did not format the image the same way as nori and because of that I had to crop the mitsuba images to be able to have a direct comparison of both, this is why the images have a very slight misalignment) </p>
+    
+    <h4>Subsurface: </h4>
+    <div class="twentytwenty-container">
+        <img src="images/disney-bsdf/subsurface_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/disney-bsdf/c_box_subsurface.png" alt="Nori" class="img-responsive">
+    </div> <br>
+    <h4>Metallic: </h4>
+    <div class="twentytwenty-container">
+        <img src="images/disney-bsdf/metal_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/disney-bsdf/c_box_metal.png" alt="Nori" class="img-responsive">
+    </div> <br>
+    <h4>Roughness: </h4>
+    <div class="twentytwenty-container">
+        <img src="images/disney-bsdf/roughness_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/disney-bsdf/c_box_roughness.png" alt="Nori" class="img-responsive">
+    </div> <br>
+    <h4>ClearCoat: </h4>
+    <div class="twentytwenty-container">
+        <img src="images/disney-bsdf/clearcoat_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/disney-bsdf/c_box_clearcoat.png" alt="Nori" class="img-responsive">
+    </div> <br>
+    <h4>ClearCoatGloss: </h4>
+    <div class="twentytwenty-container">
+        <img src="images/disney-bsdf/clearcoatgloss_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/disney-bsdf/c_box_clearcoatgloss.png" alt="Nori" class="img-responsive">
+    </div> <br>
+    <h4>Anisotropic: </h4>
+    <div class="twentytwenty-container">
+        <img src="images/disney-bsdf/anisotropic_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/disney-bsdf/c_box_anisotropic.png" alt="Nori" class="img-responsive">
+    </div> <br>
+    
+    <h2>Environment Map Emitter</h2>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>envmap.cpp</li>
+        <li>scene.h</li>
+        <li>emitter.h</li>
+        <li>path_mis.cpp</li>
+        <li>path_mats.cpp</li>
+        
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <p> First I  went through nori to understand how .exr files are read and found that this is done using bitmap. So after the filename is read it is transformed into a bitmap from which we can easily access information such as luminance for each pixel. For the environment mapping itself I read and followed the following assignment task (https://cs184.eecs.berkeley.edu/sp18/article/25) which had a step by step implementation guide, I also saw the helper functions for getting a direction from a pixel and vis-versa from the assignment. As I was then a bit confused still with the sampling, I also read the paper Monte Carlo Rendering with Natural Illumination which in part 3 explains in detail with pseudocode on how to sample environment maps.
+        Now we need to make sure that the evaluation is done during path tracing (path_mis.cpp and path_mats.cpp) when the intersection with the scene is empty. This can be done by adding a method in scene which returns an environment map if there is one in the scene and a method in emitter which returns true if the emitter is an environment map.
+ </p>
+
+    <h3>Validation: </h3>
+
+    <p> The environment map was part of the environment maps given with the assignment mentioned above. Bob the duck is from https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/.  The image is not completely aligned and the diffuse material does not seem to be correct and has a lot of fireflies. I do not know if I missed something when writing the scenes or if there is something wrong with my implementation.</p>
+    
+    <div class="twentytwenty-container">
+        <img src="images/environment-map/envmap_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/environment-map/envmap.png" alt="Nori" class="img-responsive">
+    </div> <br>
+    
+    <h2>Progressive Photon Mapping</h2>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>integrator.h</li>
+        <li>render.h</li>
+        <li>render.cpp</li>
+        <li>progressivephotonmapper.cpp</li>
+        <li>probabilisticppm.cpp</li>
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <p> I first read the officuîal paper by Hachisuka (http://graphics.ucsd.edu/~henrik/papers/progressive_photon_mapping/progressive_photon_mapping.pdf) and tried implementing it in progressivephotonmapper.cpp. After reading the paper a few times I came up with the following strategy: Do a ray tracing pass at first, store each bounce as a hitpoint with the structure given in the paper until we hit a diffuse material or through russian roulette. Then for the next passes we build a new photon map and loop over the hitpoints that we stored and update radius, accumulated photon count and flux as given in the paper.
+        <li>render.h : add a vector which stores our hitpoints </li>
+        <li>integrator.h : new function which returns a boolean on whether the integratore is a progressive photon mapper.</li>
+        <li>render.cpp : add two blocks: one for the first ray pass which does ray tracing for each pixel and stores the hitpoints and a second one which loops over the hitpoints. </li>
+        <li>progressivephotonmapper.cpp: implementation of the ray tracing pass and the photon tacing pass. </li>
+        However, even though this sounded intuitively correct I did not manage to implement it correctly. After reading and looking through my code again and again, I decided it made more sense to at least implement probabilistic progressive photon mapping. For this I added a function in the integrator that constructs a photon mapper and at the end updates the radius as given in the paper (https://www.cs.umd.edu/~zwicker/publications/PPMProbabilistic-TOG11.pdf) by Knaus and Zwicker. This method is called at the start of each pass. The Li function is almost the same as in the photonmapper but instead of using the same radius to find the neighboring photons it uses the updated radius.
+    </p>
+
+    <h3>Validation: </h3>
+    <p> We only validate our probabilistic progressive photon map. First we have the cbox scene rendered using a photon map. Using 100 000 photons and 32spp, the rendering took about 6.8min. The second image uses the probabilistic progressive photon map with 10 000 photons gathered at each pass and 128spp, the rendering already looks smoother and it took 3.3 min which is half the time of the photon mapper. The third image is the same as the second one with 256spp and took 5.4min. Finally we can say that we achieved the goal of making the rendering faster using progressive photon mapping. </p>
+    <div class="twentytwenty-container">
+        <img src="images/photon-mapping/cbox_pmap.png" alt="PhotonMap" class="img-responsive">
+        <img src="images/photon-mapping/cbox_ppmap.png" alt="PPhotonMap128spp" class="img-responsive">
+        <img src="images/photon-mapping/cbox_ppmap256spp.png" alt="PPhotonMap256spp" class="img-responsive">
+    </div> <br>
+    
+    <h2>Modeling Meshes</h2>
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <p> I watched the following tutorial ( https://www.youtube.com/watch?v=-hCaYjZcNQ4 ) on how to build a pillar. I added some screenshots of the process in the validation part. At some point I realized there was something wrong with the middle of the pillar, at first I tried to fix it but then I realized that it added to the charm of the pillar, as most greek pillars are not perfect and have cracks. </p>
+
+    <h3>Validation: </h3>
+
+    <p> <div class="row">
+        <div class="column">
+          <img src="images/modeling-meshes/1.png"  alt="1" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/modeling-meshes/2.png" alt="2" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/modeling-meshes/3.png" alt="3" style="width:100%">
+        </div>
+      </div> </p>
+    <p> <div class="row">
+        <div class="column">
+          <img src="images/modeling-meshes/4.png"  alt="4" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/modeling-meshes/6.png" alt="5" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/modeling-meshes/7.png" alt="6" style="width:100%">
+        </div>
+      </div> </p>
+    <p> <div class="row">
+        <div class="column">
+          <img src="images/modeling-meshes/8.png"  alt="7" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/modeling-meshes/9.png" alt="8" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/modeling-meshes/10.png" alt="9" style="width:100%">
+        </div>
+      </div> </p>
+    
+    <h2>Rendering using Euler Cluster</h2>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>CMakeList.txt</li>
+        <li>main.cpp</li>
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <p> For the rendering using Euler Cluster I first read the tutorial on how to log into the cluster. Then I cloned our git repositery into the cluster. To be able to render on the euler cluster it is needed to remove any dependency on the GUI. To not just add a main file to replace just in the euler cluster I added an option in the CMakeList to chose whether to render with or without gui (default is set to false). Then if this option is set to true add a compile definition. Now I can simply add the new code for main and switch between both given that the isgui is defined or not.  </p>
+
+    
+    <h2>Simple Emitter: Spotlight</h2>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>spotlight.cpp</li>
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <p> I read chapter 12.3.1 on Spotlights in the PBR book and the corresponding code. The implementation was then a straight forward implementation of what was given in the book.</p>
+
+    <h3>Validation: </h3>
+
+    <p> For validation, I made a scene with the pillar I modeled as well as spot the cow spotted from a spotlight. (source for spot: https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/). The cows are lit from a vertical spotlight, however the pillar is lit from a spotlight with a nonvertical direction. The image is compared to a corresponding mitsuba renderer. The objects in from the mitsuba renderer are a bit smoother and more lit.</p>
+    
+    <h4>Spotlight Scene: </h4>
+    <div class="twentytwenty-container">
+        <img src="images/spotlight/spot_mi.png" alt="Mitsuba" class="img-responsive">
+        <img src="images/spotlight/spotlight.png" alt="Nori" class="img-responsive">
+    </div> <br>
+
+	<!-- ================================================================= -->
+
+    <h2>Features Implemented by Omer Alkaya: </h2>
+    <p>
+        <li>Heterogeneous Volumetric Participating Media [30p, Omer] </li>
+        <li>Advanced Camera Model(Depth of Field, Lens Distortion, Chromatic Aberration) [15p, Omer]</li>
+        <li>Mipmapping for Textures [10p, Omer]</li>
+        <li>Image as Textures [5p, Omer]</li>
+    </p>
+
+    <!-- ================================================================= -->
+
+	<h2>Advanced Camera Model</h2>
+
+    <p> This set of features took me around 35 hours to implement, and were quite enjoyable to work on. </p>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>Modified camera.h</li>
+        <li>Modified perspective.cpp</li>
+        <li>Modified render.cpp</li>
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <h4>camera.h: </h4>
+
+    <p> Added an enumerator RGBChannel to implement chromatic aberration and added support for said channel in sampleRay. </p>
+
+    <h4>perspective.cpp: </h4>
+
+    <p> In perspective.cpp added radial lens distortion using a quadratic polynomial. <br>
+        Added the thin lens camera model for depth of field, inspired from the PBR Book. The thin
+        lens camera model uses lens radius and focal distance to simulate a real camera lens. <br>
+        Finally added chromatic aberration support by using the aforementioned RGBChannel enumerator
+        for which a switch case is performed. If the channel is either R, G or B (not Channel_ALL), only the appropriate
+        color channel is computed. The amount of shift that is caused by chromatic aberration can be determined by
+        a vector that is passed in via the xml file.
+    </p>
+
+    <h4>render.cpp: </h4>
+
+    <p> Modified render.cpp to handle chromatic aberration. The sampleRay function from camera and the integrators Li function
+        is called once per colour channel if chromatic aberration is enabled. </p>
+
+    <h3>Validation: </h3>
+
+    <h4>Radial Distortion: </h4>
+
+    <div class="twentytwenty-container">
+        <img src="images/advanced-camera/distortion_neg_low.png" alt="neg_low" class="img-responsive">
+        <img src="images/advanced-camera/distortion_neg_high.png" alt="neg_high" class="img-responsive">
+        <img src="images/advanced-camera/orig.png" alt="original" class="img-responsive">
+    </div> <br>
+
+    <div class="twentytwenty-container">
+        <img src="images/advanced-camera/distortion_pos_low.png" alt="pos_low" class="img-responsive">
+        <img src="images/advanced-camera/distortion_pos_high.png" alt="pos_high" class="img-responsive">
+        <img src="images/advanced-camera/orig.png" alt="original" class="img-responsive">
+    </div> <br>
+
+    <h4>Depth of Field: </h4>
+
+    <div class="twentytwenty-container">
+        <img src="images/advanced-camera/orig.png" alt="original" class="img-responsive">
+        <img src="images/advanced-camera/DoF_low.png" alt="dof_low (radius: 0.01 focalDist:500)" class="img-responsive">
+        <img src="images/advanced-camera/DoF_mid.png" alt="dof_mid (radius: 0.05 focalDist:400)" class="img-responsive">
+        <img src="images/advanced-camera/DoF_high.png" alt="dof_high (radius: 0.2 focalDist:200)" class="img-responsive">
+    </div> <br>
+
+    <h4>Chromatic Aberration: </h4>
+
+    <div class="twentytwenty-container">
+        <img src="images/advanced-camera/chromatic_low.png" alt="chr_low" class="img-responsive">
+        <img src="images/advanced-camera/chromatic_high.png" alt="chr_high" class="img-responsive">
+        <img src="images/advanced-camera/orig.png" alt="original" class="img-responsive">
+    </div> <br> <br>
+
+
+    <!-- ================================================================= -->
+
+	<h2>Texture Mapping & Mipmapping</h2>
+
+    <p> Initially I implemented a basic texture mapping strategy (imagetexture_legacy.cpp) using lodepng https://lodev.org/lodepng/. <br>
+        Afterwards I tried implementing mipmapping and image texturing (imagetexture.cpp) using the PBR book as reference. Unfortunately I have not been
+        able to resolve memory related issues in mipmapping while I construct the mipmap pyramid and therefore get bad_alloc errors.
+        Otherwise I firmly believe that my approach should be correct, since I ported the PBR book implementation of mipmaps into nori.
+        Both these approaches took me about 45 hours.
+    </p>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>Modified texture.h </li>
+        <li>Added lodepng.h</li>
+        <li>Added lodepng.cpp</li>
+        <li>Added imagetexture.cpp</li>
+        <li>Added imagetexture_legacy.cpp</li>
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <h4>imagetexture_legacy.cpp: </h4>
+
+    <p> I simply use the lodepng library to load and image into a vector where the pixels are stored as four
+        consecutive values (RGBA) on a vector. Then I scale the image according to the passed parameter and
+        use modulo arithmetic alongside the given uv coordinate to wrap the image around the object repeatedly.
+    </p>
+
+    <h4>imagetexture.cpp: </h4>
+
+    <p> Firstly I modified the texture.h file to add an enumerator for the image wrapping strategy. <br> 
+        Added struct MIPMapLevel to store properties regarding a mipmap pyramid level. Added class MIPMap to construct
+        the mipmap pyramid levels, given an image loaded with lodepng.cpp. The pyramid building is inspired completely
+        from PBR Book. <br> 
+        Texel() looks up the texel value given a uv value and an image wrapping strategy. <br>
+        Triangle() performs trilinear interpolation on a texture map lookup. <br>
+        Finally the ImageTexture class itself loads the image using lodepng, calls the MIPMap constructor.
+        When a eval() is called upon ImageTexture, the lookup function for MIPMap is called with the width parameter
+        that is passed from the xml file, which determines the mipmap level. Eval returns the Color3f value that
+        has been trilinearly interpolated from the appropriate mipmap levels.
+    </p> 
+
+    <h3>Validation: </h3>
+
+    <h4>imagetexture_legacy.cpp: </h4>
+
+    <img src="images/imagetexture/cbox_path_mis.png" alt="imagetexture_legacy.cpp"/> <br> <br> <br> <br>
+
+    <!-- ================================================================= -->
+
+	<h2>Heterogeneous Participating Media</h2>
+
+    <p> I have spent around 70 hours trying to implement media. Unfortunately I was stuck on a segmentation fault that I couldn't debug.
+        But I believe that my implementation theory is correct since I used the slides and the PBR Book for reference. Unfortunately 
+        only being able to use a couple slides from the lectures as reference for this section (since media photon mapping is not in PBR Book nor easily found online)
+        made the process quite difficult.
+    </p>
+
+    <h3>Modified Files:</h3>
+
+    <p>
+        <li>Modified object.h</li>
+        <li>Modified scene.h</li>    
+        <li>Modified scene.cpp</li>  
+        <li>Added phasefunction.h</li>    
+        <li>Added phasefunction.cpp</li>  
+        <li>Added medium.h</li>
+        <li>Added medium_homogeneous.cpp</li>
+        <li>Added photonmapper_medium.cpp</li>
+    </p>
+
+
+    <h3>Implementation Details & Encountered Issues: </h3>
+
+    <h4>object.h: </h4>
+
+    <p> Added handling of EPhaseFunction and EMedium object types. </p>
+
+    <h4>scene.h: </h4>
+
+    <p> Added a vector of Medium pointers to the scene. </p>
+
+    <h4>scene.cpp: </h4>
+
+    <p> Implemented the case for EMedium in addChild(). </p>
+
+    <h4>phasefunction.h </h4>  
+
+    <p> Header for phasefunction.cpp </p>
+
+    <h4>phasefunction.cpp </h4>  
+
+    <p> Added Isotropic and HenyeyGreenstein phase functions and their corresponding pdfs.
+        (Did not declare this feature beforehand in project report) </p>
+
+    <h4>medium.h </h4>  
+
+    <p> Header for medium.cpp. Has convenience methods to get sigma values and
+        parameter for HenyeyGreenstein phase function. Implements MediumQueryRecord to query the Medium interactions.</p>   
+        
+    <h4>medium_homogeneous.cpp </h4>  
+
+    <p> Implements the Tr() and sample() functions for homogeneous media. I have used the definitions from the lectures slides
+        for these functions. <br>
+        Sample() takes in a ray, and a MediumQueryRecord, samples a channel from sigma_t, then samples a
+        freeflight distance t using the sampled color channel.
+        The MediumQueryRecords intersection point is set. HenyeyGreenstein is used to sample the wo direction
+        (or Isotropic if the parameter for HenyeyGreenstein is not specified). Finally the freeflight distance t
+        is returned. <br>
+        Tr() returns the transmission possibility as a float between two given points.
+    </p>
+
+    <h4>photonmapper_medium.cpp </h4>  
+
+    <p> Used the lecture slides (Participating Media II) to implement the photonmapper_medium. photonmapper_medium is a modification of the
+        previously implemented photonmapper in AS4. <br>
+        In preprocess() the scene medium is retrieved and media scattering is performed if the sampled freeflight
+        distance t is less than tMax. <br>
+        In Li() the transmission tr_rec from the start of the camera ray is accumulated until a diffuse surface.
+        This is the factor that is multiplied by the total Li that is calculated. Additionally one needs to handle scattering.
+        Scattering is handled by performing additional photon searches (given a step size) and multiplying their power by transmittance and 
+        the pdf of the phase function.
+    </p>
+    <h2> Final Image </h2>
+    <p> We had as initial idea to do an underwater city. However due to not being able to implement some of the features correctly and also due to lack of time we did a simple scene which shows some of the features implemented for the project. </p>
+    
+    <img src="images/finalcbox.png" alt="final"/>
+</div>
+</div>
+
+<!-- IMAGE CONTAINERS -->
+
+    <div class="twentytwenty-container">
+        <img src=".png" alt=".." class="img-responsive">
+        <img src=".png" alt=".." class="img-responsive">
+    </div> <br>
+
+    <img src=".png" alt=".."/> <br>
+
+    
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/bootstrap.min.js"></script>
+<script src="resources/jquery.event.move.js"></script>
+<script src="resources/jquery.twentytwenty.js"></script>
+
+
+<script>
+$(window).load(function(){$(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});});
+</script>
+
+</body>
+</html>

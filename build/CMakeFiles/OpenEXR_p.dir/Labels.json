@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/OpenEXR_p"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/OpenEXR_p.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/OpenEXR_p-complete.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p-stamp/OpenEXR_p-build.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p-stamp/OpenEXR_p-configure.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p-stamp/OpenEXR_p-download.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p-stamp/OpenEXR_p-install.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p-stamp/OpenEXR_p-mkdir.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p-stamp/OpenEXR_p-patch.rule"
+		},
+		{
+			"file" : "/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p-stamp/OpenEXR_p-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"OpenEXR_p"
+		],
+		"name" : "OpenEXR_p"
+	}
+}

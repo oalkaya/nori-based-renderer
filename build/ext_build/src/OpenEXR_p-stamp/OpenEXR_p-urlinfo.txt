@@ -1,0 +1,11 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=url
+command=/Applications/CMake.app/Contents/bin/cmake;-E;rm;-rf;/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p;COMMAND;/Applications/CMake.app/Contents/bin/cmake;-E;copy_directory;/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/ext/openexr/OpenEXR;/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p
+source_dir=/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/OpenEXR_p
+work_dir=/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src
+url(s)=/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/ext/openexr/OpenEXR
+hash=
+

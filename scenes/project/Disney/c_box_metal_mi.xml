@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene version="0.5.0">
+    <default name="spp" value="512"/>
+    <default name="integrator" value="path"/>
+    
+    <integrator type='$integrator'>
+        <integer name="rr_depth" value="1"/>
+    </integrator>
+
+    <sensor type="perspective" id="sensor">
+        <string name="fov_axis" value="smaller"/>
+        <float name="fov" value="27.7856"/>
+        <transform name="to_world">
+            <scale value="1,1,1"/>
+            <lookat origin="0, 0.919769, 5.41159"
+                    target="0, 0.893051, 4.41198"
+                    up    ="0, 1, 0"/>
+        </transform>
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+        <film type="hdrfilm">
+            <integer name="width"  value="800"/>
+            <integer name="height" value="600"/>
+            <string name="pixel_format" value="rgb"/>
+            <string name="component_format" value="float32"/>
+        </film>
+    </sensor>
+    
+
+    <shape type="obj">
+        <string name="filename" value="meshes/walls.obj"/>
+
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.725 0.71 0.68"/>
+        </bsdf>
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/rightwall.obj"/>
+
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.725 0.71 0.68"/>
+        </bsdf>
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/leftwall.obj"/>
+
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.725 0.71 0.68"/>
+        </bsdf>
+    </shape>
+
+    
+    <!-- row 2-->
+    <shape type="sphere">
+        <point name="center" value="-0.8 0.98 0" />
+        <float name="radius" value="0.18" />
+
+        <bsdf type="principled">
+            <rgb name="base_color" value="0.82,0.67,0.16"/>
+            <float name="metallic" value="0" />
+            <float name="roughness" value="0.5" />
+        </bsdf>
+    </shape>
+    <shape type="sphere">
+        <point name="center" value="-0.4 0.98 0" />
+        <float name="radius" value="0.18" />
+
+        <bsdf type="principled">
+            <rgb name="base_color" value="0.82,0.67,0.16"/>
+            <float name="metallic" value="0.25" />
+            <float name="roughness" value="0.5" />
+        </bsdf>
+    </shape>
+    <shape type="sphere">
+        <point name="center" value="0 0.98 0" />
+        <float name="radius" value="0.18" />
+
+        <bsdf type="principled">
+            <rgb name="base_color" value="0.82,0.67,0.16"/>
+            <float name="metallic" value="0.5" />
+            <float name="roughness" value="0.5" />
+        </bsdf>
+    </shape>
+    <shape type="sphere">
+        <point name="center" value="0.4 0.98 0" />
+        <float name="radius" value="0.18" />
+
+        <bsdf type="principled">
+            <rgb name="base_color" value="0.82,0.67,0.16"/>
+            <float name="metallic" value="0.75" />
+            <float name="roughness" value="0.5" />
+        </bsdf>
+    </shape>
+    <shape type="sphere">
+        <point name="center" value="0.8 0.98 0" />
+        <float name="radius" value="0.18" />
+
+        <bsdf type="principled">
+            <rgb name="base_color" value="0.82,0.67,0.16"/>
+            <float name="metallic" value="1" />
+            <float name="roughness" value="0.5" />
+        </bsdf>
+    </shape>
+    
+
+    <shape type="sphere">
+        <point name="center" value="0.445800 0.332100 0.376700" />
+        <float name="radius" value="0.3263" />
+        <bsdf type="conductor"/>
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="meshes/light.obj"/>
+
+        <emitter type="area">
+            <rgb name="radiance" value="15 15 15"/>
+        </emitter>
+    </shape>
+</scene>

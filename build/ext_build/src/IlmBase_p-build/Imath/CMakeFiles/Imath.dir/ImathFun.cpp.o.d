@@ -1,0 +1,24 @@
+Imath/CMakeFiles/Imath.dir/ImathFun.cpp.o: \
+  /Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/IlmBase_p/Imath/ImathFun.cpp \
+  /Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/IlmBase_p/Imath/ImathFun.h \
+  /Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/IlmBase_p/Imath/ImathExport.h \
+  /Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/IlmBase_p/Imath/ImathLimits.h \
+  /Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/IlmBase_p/Imath/ImathNamespace.h \
+  /Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/IlmBase_p-build/config/IlmBaseConfig.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/c++/v1/float.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/c++/v1/__config \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/c++/v1/__config_site \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/pthread.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/float.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/float.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/c++/v1/limits.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/limits.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/limits.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/sys/cdefs.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/sys/_posix_availability.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/machine/limits.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/i386/limits.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/i386/_limits.h \
+  /Applications/Xcode_14_01.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.sdk/usr/include/sys/syslimits.h \
+  /Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/src/IlmBase_p/Imath/ImathInt64.h

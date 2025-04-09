@@ -1,0 +1,10 @@
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/tbb_p.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/IlmBase_p.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/OpenEXR_p.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/nanogui_p.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/pugixml.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/nori.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/warptest.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/tonemapper.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/edit_cache.dir
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,110 @@
+<scene version="3.0.0">
+    <default name="spp" value="512"/>
+    <default name="integrator" value="path"/>
+    
+    <integrator type='$integrator'>
+        <integer name="rr_depth" value="1"/>
+    </integrator>
+
+    <sensor type="perspective" id="sensor">
+        <string name="fov_axis" value="smaller"/>
+        <float name="fov" value="40"/>
+        <transform name="to_world">
+            <scale value="-1,1,1"/>
+            <lookat origin="10,10,10"
+                    target="0,  0,  0"
+                    up    ="0,  1,  0"/>
+        </transform>
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+        <film type="hdrfilm">
+            <integer name="width"  value="720"/>
+            <integer name="height" value="720"/>
+            <string name="pixel_format" value="rgb"/>
+            <string name="component_format" value="float32"/>
+        </film>
+    </sensor>
+    
+    <bsdf type="diffuse" id="pink">
+        <rgb name="reflectance" value="1, 0.8, 0.7"/>
+    </bsdf>
+
+    <bsdf type="diffuse" id="white">
+        <rgb name="reflectance" value="0.9, 0.87, 0.78"/>
+    </bsdf>
+
+
+
+    <!-- 3 spots!!! -->
+    <emitter type="spot">
+        <transform name="to_world">
+            <!-- Orient the light so that points from (1, 1, 1) towards (1, 2, 1) -->
+            <lookat origin="-2.5,5.2,1.5" target="1.5,0.7,1.5"/>
+        </transform>
+        <rgb name="intensity" value="100,100,100"/>
+        <float name="beam_width" value="28"/>
+        <float name="cutoff_angle" value="32"/>
+<!--        <vector name="direction" value = "0.5,-1,0"/>-->
+    </emitter>
+
+    <emitter type="spot">
+        <transform name="to_world">
+            <!-- Orient the light so that points from (1, 1, 1) towards (1, 2, 1) -->
+            <lookat origin="3,6,6" target="3,1,6"/>
+        </transform>
+        <rgb name="intensity" value="100,100,100"/>
+        <float name="beam_width" value="28"/>
+        <float name="cutoff_angle" value="32"/>
+<!--        <vector name="direction" value = "0,-2,0"/>-->
+    </emitter>
+
+    <emitter type="spot">
+        <transform name="to_world">
+            <!-- Orient the light so that points from (1, 1, 1) towards (1, 2, 1) -->
+            <lookat origin="2, 6, -5" target="2,1,-5"/>
+        </transform>
+        <rgb name="intensity" value="100,100,100"/>
+        <float name="beam_width" value="28"/>
+        <float name="cutoff_angle" value="32"/>
+<!--        <vector name="direction" value = "0,-2,0"/>-->
+    </emitter>
+
+    <shape type="obj">
+        <string name="filename" value="pillar.obj"/>
+        <ref id="white"/>
+
+        <transform name="to_world">
+            <scale value="0.7,0.7,0.7"/>
+            <translate value="1.5,0.7,1.5"/>
+        </transform>
+
+    </shape>
+
+    <shape type="obj">
+        <string name="filename" value="spot_triangulated.obj"/>
+        <ref id="pink"/>
+
+        <transform name="to_world">
+            <scale value="1,1,1"/>
+            <translate value="3,1,6"/>
+        </transform>
+
+    </shape>
+
+
+    <shape type="obj">
+        <string name="filename" value="spot_triangulated.obj"/>
+        <ref id="pink"/>
+        <transform name="to_world">
+            <scale value="1,1,1"/>
+            <rotate value="0,1,0" angle="180"/>
+            <translate value="2,1,-5"/>
+        </transform>
+
+    </shape>
+
+    
+
+</scene>
+

@@ -1,0 +1,8 @@
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/include/GLFW/glfw3.h
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/include/GLFW/glfw3native.h
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/lib/cmake/glfw3/glfw3Config.cmake
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/lib/cmake/glfw3/glfw3ConfigVersion.cmake
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/lib/cmake/glfw3/glfw3Targets.cmake
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/lib/cmake/glfw3/glfw3Targets-release.cmake
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/lib/pkgconfig/glfw3.pc
+/Users/daphnemayor/Desktop/ComputerGraphics/nori_omer_daphne/build/ext_build/dist/lib/libglfw3.a
