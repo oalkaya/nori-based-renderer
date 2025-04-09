@@ -1,4 +1,4 @@
-# Nori Renderer Extensions
+# Renderer based on Nori
 
 This repository builds upon the C++-based physically-based renderer **Nori**, progressively implementing core features of ray tracing and rendering techniques. The repository includes individual exercises and a collaborative final project.
 
